@@ -13,13 +13,13 @@ public class HarvestCode {
 	//TODO luego tiene que ser reemplazado por un valor en al base de datos
 	private final AtomicLong counter = new AtomicLong();
 	
-	public HarvestCode(String uFarmerID, String uSeedID, ArrayList<Birth> history){
-		this.uHarvestId = this.generateUHarvestId(uFarmerID, uSeedID, counter.intValue());
+	public HarvestCode(String uFarmerID, String uVarietyID, ArrayList<Birth> history){
+		this.uHarvestId = this.generateUHarvestId(uFarmerID, uVarietyID, counter.intValue());
 		if (history.size() > 0){
 			String harvestCodeValidatorAnt = history.get(history.size()-1).getHarvestCodeValidator();
-			this.harvestCodeValidator = this.generateHarvestCodeValidator(uFarmerID, uSeedID, harvestCodeValidatorAnt);
+			this.harvestCodeValidator = this.generateHarvestCodeValidator(uFarmerID, uVarietyID, harvestCodeValidatorAnt);
 		}else{
-			this.harvestCodeValidator = this.generateHarvestCodeValidator(uFarmerID, uSeedID);
+			this.harvestCodeValidator = this.generateHarvestCodeValidator(uFarmerID, uVarietyID);
 		}
 	}
 	
@@ -34,9 +34,9 @@ public class HarvestCode {
 	}
 	
 	private String generateHarvestCodeValidator(String uFarmerID,
-			String uSeedID, String harvestCodeValidatorAnt) {
+			String uVarietyID, String harvestCodeValidatorAnt) {
 		byte[] uFarmerIDBytes = this.hexStringToByteArray(uFarmerID);
-		byte[] uSeedIDBytes = this.hexStringToByteArray(uSeedID);
+		byte[] uVarietyIDBytes = this.hexStringToByteArray(uVarietyID);
 		
 		byte[] harvestCodeValidatorAntBytes = this.hexStringToByteArray(harvestCodeValidatorAnt);
 		
@@ -44,7 +44,7 @@ public class HarvestCode {
 		
 		int i = 0;
 		for (byte uFarmerIDByteI : uFarmerIDBytes){
-			harvestCodeValidatorBytes[i] = (byte) (uFarmerIDByteI ^ uSeedIDBytes[i] ^ harvestCodeValidatorAntBytes[i]);
+			harvestCodeValidatorBytes[i] = (byte) (uFarmerIDByteI ^ uVarietyIDBytes[i] ^ harvestCodeValidatorAntBytes[i]);
 			i++;
 		}
 		
@@ -57,9 +57,9 @@ public class HarvestCode {
 	}
 	
 	private String generateHarvestCodeValidator(String uFarmerID,
-			String uSeedID) {
+			String uVarietyID) {
 		byte[] uFarmerIDBytes = this.hexStringToByteArray(uFarmerID);
-		byte[] uSeedIDBytes = this.hexStringToByteArray(uSeedID);
+		byte[] uVarietyIDBytes = this.hexStringToByteArray(uVarietyID);
 		byte[] harvestCodeValidatorAntBytes = new byte[4];
 		
 		new Random().nextBytes(harvestCodeValidatorAntBytes);
@@ -68,7 +68,7 @@ public class HarvestCode {
 		
 		int i = 0;
 		for (byte uFarmerIDByteI : uFarmerIDBytes){
-			harvestCodeValidatorBytes[i] = (byte) (uFarmerIDByteI ^ uSeedIDBytes[i] ^ harvestCodeValidatorAntBytes[i]);
+			harvestCodeValidatorBytes[i] = (byte) (uFarmerIDByteI ^ uVarietyIDBytes[i] ^ harvestCodeValidatorAntBytes[i]);
 			i++;
 		}
 		
@@ -80,10 +80,10 @@ public class HarvestCode {
 		return sb.toString().replace(" ", "");
 	}
 
-	private String generateUHarvestId(String uFarmerID, String uSeedID,
+	private String generateUHarvestId(String uFarmerID, String uVarietyID,
 			int intValue) {
 		// TODO Auto-generated method stub
-		return uFarmerID + "/" + uSeedID + "/" + intValue;
+		return uFarmerID + "/" + uVarietyID + "/" + intValue;
 	}
 	
 	public String getUHarvestId() {
