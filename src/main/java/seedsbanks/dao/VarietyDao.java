@@ -12,4 +12,8 @@ public class VarietyDao {
 	public Variety getVariety(String uVarietyID){
 		return new Variety(uVarietyID, "patatas rojas");
 	}
+	
+	public void saveVariety(Variety variety){
+		variety.setuVarietyID("AABBCCDD");
+	}
 }
