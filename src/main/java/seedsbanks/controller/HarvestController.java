@@ -3,8 +3,8 @@ package main.java.seedsbanks.controller;
 import java.util.ArrayList;
 import java.util.Date;
 
-import main.java.seedsbanks.Birth;
-import main.java.seedsbanks.Harvest;
+import main.java.seedsbanks.domain.Birth;
+import main.java.seedsbanks.domain.Harvest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

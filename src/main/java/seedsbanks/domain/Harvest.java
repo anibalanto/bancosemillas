@@ -1,4 +1,4 @@
-package main.java.seedsbanks;
+package main.java.seedsbanks.domain;
 
 import java.util.ArrayList;
 import java.util.Date;

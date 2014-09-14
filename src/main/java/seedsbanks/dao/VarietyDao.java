@@ -2,7 +2,7 @@ package main.java.seedsbanks.dao;
 
 import java.util.ArrayList;
 
-import main.java.seedsbanks.Variety;
+import main.java.seedsbanks.domain.Variety;
 
 public class VarietyDao {
 	public ArrayList<Variety> getSeed(){

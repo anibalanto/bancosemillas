@@ -1,7 +1,7 @@
 package main.java.seedsbanks.controller;
 
-import main.java.seedsbanks.Variety;
 import main.java.seedsbanks.dao.VarietyDao;
+import main.java.seedsbanks.domain.Variety;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package main.java.seedsbanks;
+package main.java.seedsbanks.domain;
 
 public class Variety {
     private String uVarietyID;
