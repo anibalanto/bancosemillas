@@ -3,26 +3,31 @@
  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
 	<head>
 		<title>Banco de Semillas</title>
-		<script src="angular.min.js"></script>
-    	<script src="harvest.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+    	<script src="test.js"></script>
 	</head>
 	<body>
-	
-		<div ng-controller="BankController">
-			<h2> Solucion dinamica (service): </h2>
- 			<p>ufarmerID: {{harvests[0].harvestCodeValidator}}</p>
-		</div>
-		
-		<div ng-controller="SeedController">
-			<h2> Solucion estática: </h2>
-			<p>{{ products[0].date}}	</p>
-			<p>{{ products[0].harvestCodeValidator}}	</p>
-			<p>{{ products[0].ufarmerID}}	</p>
-		</div>
-	
+
 		<h2> Otras pruebas: </h2>
 		<p>{{"hello" + " world"}}</p>
 		<p>{{100 * 24}}</p>
 	
+	
+		<div ng-controller="BankController as bank">
+			<h2> Solucion dinamica (service): </h2>
+ 			<p>ufarmerID: {{bank.harvests[0].harvestCodeValidator}}</p>
+		</div>
+		
+<!-- 		<div ng-controller="SeedController"> -->
+<!-- 			<h2> Solucion estática: </h2> -->
+<!-- 			<p>{{ products[0].date}}	</p> -->
+<!-- 			<p>{{ products[0].harvestCodeValidator}}	</p> -->
+<!-- 			<p>{{ products[0].ufarmerID}}	</p> -->
+<!-- 		</div> -->
+	
+		<div ng-controller="TestController">
+			<h2> Solucion estática: </h2>
+			<p>{{ test.date}}	</p>
+		</div>
 	</body>
 </html>
